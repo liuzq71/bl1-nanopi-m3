@@ -97,7 +97,7 @@ The u-boot loads also _initrd_ image. There is a problem with the initrd image c
 
 To prepare such hand-made initrd, statically linked _busybox_ binary for arm64 is needed. To obtain such _busybox_ binary, open [busybox package download](https://packages.debian.org/stretch/arm64/busybox-static/download) page on Debian packages site, choose mirror nearest to you and download the busybox-static "_deb_" package. The package contents may be extracted using _dpkg-deb_ command with _-x_ option, e.g.:
 
-        dpkg-deb -x busybox-static_1.22.0-19+b3_arm64.deb
+        dpkg-deb -x busybox-static_1.22.0-19+b3_arm64.deb ./
 
 The busybox binary should be located in _bin_ subdirectory.
 
