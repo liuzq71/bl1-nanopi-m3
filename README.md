@@ -162,7 +162,7 @@ The created _initrd.img_ file should be copied to _/boot_ directory on SD card (
     (/home/bruce/friendlyarm/nanopi_m3/rafaello7/ll) Initramfs source file(s)
  重新编译内核:
  make ARCH=arm64 CROSS_COMPILE=/opt/gnu-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- Image
- 拷贝Image到 boot目录
+ 拷贝Image到 _boot_目录
  8,进入u-boot命令行,将bootargs,bootcmd修改成：
  bootargs=console=ttySAC0,115200n8 console=tty1
  bootcmd=ext4load mmc 0:1 0x48000000 boot/Image; ext4load mmc 0:1 0x4a000000 boot/s5p6818-nanopi-m3.dtb; booti 0x48000000 -    0x4a000000
