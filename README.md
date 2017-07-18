@@ -143,7 +143,7 @@ Output similar to the following should appear:
         3039 blocks
 
 The created _initrd.img_ file should be copied to _/boot_ directory on SD card (_/mnt/boot_). Now the SD card may be unmounted and put into SD slot on NanoPi board.
-[我按以上步骤做出的initrd.img无法启动内核,于是我改以initramfs方式启动:
+(我按以上步骤做出的initrd.img无法启动内核,于是我改以initramfs方式启动:
  1,dpkg-deb -x busybox-static_1.22.0-19+b3_arm64.deb ./
  2,rm -rf ./usr
  3,mkdir  _dev_, _mnt_, _proc_
@@ -167,7 +167,7 @@ The created _initrd.img_ file should be copied to _/boot_ directory on SD card (
  bootargs=console=ttySAC0,115200n8 console=tty1
  bootcmd=ext4load mmc 0:1 0x48000000 boot/Image; ext4load mmc 0:1 0x4a000000 boot/s5p6818-nanopi-m3.dtb; booti 0x48000000 -    0x4a000000
  保存,重启NanoPi M3,可以启出来了,然后继续以下步骤。
- ]
+ )
 
 ## First boot
 
