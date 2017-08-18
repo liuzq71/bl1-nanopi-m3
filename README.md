@@ -143,31 +143,6 @@ Output similar to the following should appear:
         3039 blocks
 
 The created _initrd.img_ file should be copied to _/boot_ directory on SD card (_/mnt/boot_). Now the SD card may be unmounted and put into SD slot on NanoPi board.
-(我按以上步骤做出的initrd.img无法启动内核,于是我改以initramfs方式启动:
- 1,dpkg-deb -x busybox-static_1.22.0-19+b3_arm64.deb ./
- 2,rm -rf ./usr
- 3,mkdir  _dev_, _mnt_, _proc_
- 4,cd ./bin
- 5,ln -s busybox sh
-   ln -s busybox mount
-   ln -s busybox chroot
-   ln -s busybox umount
-   ln -s busybox reboot
- 6,cd ../dev
-   mknod -m 666 console c 5 1
-   mknod -m 666 null c 1 3
- 7,配置内核: 
- General setup  --->
-    [*] Initial RAM filesystem and RAM disk (initramfs/initrd) support                   
-    (/home/bruce/friendlyarm/nanopi_m3/rafaello7/ll) Initramfs source file(s)
- 重新编译内核:
- make ARCH=arm64 CROSS_COMPILE=/opt/gnu-toolchain/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- Image
- 拷贝Image到 _boot_目录
- 8,进入u-boot命令行,将bootargs,bootcmd修改成：
- bootargs=console=ttySAC0,115200n8 console=tty1
- bootcmd=ext4load mmc 0:1 0x48000000 boot/Image; ext4load mmc 0:1 0x4a000000 boot/s5p6818-nanopi-m3.dtb; booti 0x48000000 -    0x4a000000
- 保存,重启NanoPi M3,可以启出来了,然后继续以下步骤。
- )
 
 ## First boot
 
