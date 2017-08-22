@@ -1,4 +1,4 @@
- bl1-nanopi-m3
+# bl1-nanopi-m3
 
 ## Boot loader for NanoPi M3 board from FriendlyARM
 
